@@ -1,0 +1,27 @@
+<div class="contenedor" >
+    <div style="padding: 20px; text-align: center;">
+        <h1 >Vuelos</h1>
+    </div>
+    <div class="container" style="text-align: center;">
+
+        <form (ngSubmit)="getFlight()" [formGroup]="dataForm">
+          <div class="input-group mb-3">
+            <input maxlength="3" type="text" class="form-control" placeholder="Origen" formControlName="origin" required oninput="this.value = this.value.toUpperCase()">
+            <span class="input-group-text"><i class="bi bi-arrow-right"></i></span>
+            <input maxlength="3" type="text" class="form-control" placeholder="Destino" formControlName="destination" required oninput="this.value = this.value.toUpperCase()">
+          </div>
+
+          <div>
+              <button type="submit" [disabled]="!dataForm.valid" class="btn btn-primary" ><i class="bi bi-search"></i> Consultar</button>
+          </div>
+        </form>
+    </div>
+  </div>
+<br>
+<app-journey
+  [journey]= "journey"
+  [price] = "price"
+>
+</app-journey>
+
+
