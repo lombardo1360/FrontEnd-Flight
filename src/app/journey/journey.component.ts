@@ -10,7 +10,6 @@ import { Journey } from '../models/journey.model';
 export class JourneyComponent implements OnInit {
 
   @Input() journey!: Journey;
-  @Input() price!: number;
 
 
   constructor() { }

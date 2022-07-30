@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { htppOption } from 'src/app/common/httpOption';
+import { htppOption } from 'src/app/common/httpOption.common';
 import { Journey } from '../models/journey.model';
 import { RequestF } from '../models/request.model';
 

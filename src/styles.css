@@ -5,9 +5,10 @@
   margin: 0 auto;
   margin-top: 20px;
   align-items: center;
+  border-radius: 10px;
   justify-content: center;
   background-color: #ffffff;
-  box-shadow: 0 3px 13px 1px rgb(0 0 0/ 9%) ;
+  box-shadow: 0 3px 13px 1px rgb(0 0 0/ 30%) ;
 }
 body{
   font-family:'Trebuchet MS', Verdana, sans-serif;

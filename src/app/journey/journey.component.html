@@ -6,7 +6,7 @@
     <div class="card-body">
       <h5 class="card-text">Origen: {{journey.origin}}</h5>
       <h5 class="card-text">Destino: {{journey.destination}}</h5>
-      <h5 class="card-text">Precio: $ {{price}}</h5>
+      <span><b>{{journey.price | currencyChangePipe}} </b></span>
     </div>
     <h3>Ruta</h3>
   </div>
@@ -24,7 +24,7 @@
           <td>{{item.arrivalStation}}</td>
           <td>{{item.flightCarrier}}</td>
           <td>{{item.flightNumber}}</td>
-          <td>{{item.price}}</td>
+          <td>{{item.price | currencyChangePipe}}</td>
       </tr>
   </table>
 </div>

@@ -1,6 +1,6 @@
 import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, MaxLengthValidator, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 
 import { Journey } from '../models/journey.model';
@@ -16,7 +16,6 @@ export class FlightComponent implements OnInit {
 
   requestFlight: RequestF;
   journey!: Journey;
-  moneda: string = "USD";
   price!: number ;
 
   dataForm!: FormGroup;
@@ -39,19 +38,6 @@ export class FlightComponent implements OnInit {
 
   }
 
-  // conversion(){
-  //   console.log("entra")
-  //   if(this.moneda == "USD"){
-  //     console.log("entra1")
-  //     this.price = this.journey.price;
-  //   }
-  //   if(this.moneda == "COP"){
-  //     console.log("entra2")
-  //     const operacion = this.journey.price * 4300;
-  //     this.price = operacion;
-  //   }
-  // }
-
   getFlight(){
     this.requestFlight = this.dataForm.value;
     this.apiFlight.getFlight(this.requestFlight).subscribe(response=>{
@@ -59,7 +45,6 @@ export class FlightComponent implements OnInit {
       if(response.origin !== null){
         this.journey = response;
       }else{
-        console.log("no");
         Swal.fire({
           title: 'No se encontro una ruta',
           text: "Vuelva a consultar",
@@ -70,6 +55,7 @@ export class FlightComponent implements OnInit {
             popup: 'animate__animated animate__fadeOutUp'
           }
         })
+        this.journey.price = 0;
       }
      })
 
