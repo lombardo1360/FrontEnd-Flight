@@ -6,26 +6,31 @@
     <div class="card-body">
       <h5 class="card-text">Origen: {{journey.origin}}</h5>
       <h5 class="card-text">Destino: {{journey.destination}}</h5>
-      <span><b>{{journey.price | currencyChangePipe}} </b></span>
+      <span><b> Total: {{journey.price | currencyChangePipe}} </b></span>
     </div>
     <h3>Ruta</h3>
   </div>
-
-  <table class="table table-striped table-hover" style="margin-left: 50px;" >
-      <tr>
-          <th>Origen</th>
-          <th>Destino</th>
-          <th>Avion</th>
-          <th>Numero de avion </th>
-          <th>Precio</th>
-      </tr>
-      <tr *ngFor="let item of journey.flight">
-          <td>{{item.departureStation}}</td>
-          <td>{{item.arrivalStation}}</td>
-          <td>{{item.flightCarrier}}</td>
-          <td>{{item.flightNumber}}</td>
-          <td>{{item.price | currencyChangePipe}}</td>
-      </tr>
+  <table class="table">
+    <thead >
+    <tr>
+        <th>Origen</th>
+        <th>Destino</th>
+        <th>Avion</th>
+        <th>Numero</th>
+        <th>Precio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of journey.flight">
+        <td>{{item.departureStation}}</td>
+        <td>{{item.arrivalStation}}</td>
+        <td>{{item.flightCarrier}}</td>
+        <td>{{item.flightNumber}}</td>
+        <td>{{item.price | currencyChangePipe}}</td>
+    </tr>
+  </tbody>
   </table>
+
+
 </div>
 

@@ -1,6 +1,8 @@
-import { ThisReceiver } from '@angular/compiler';
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+
 import Swal from 'sweetalert2';
 
 import { Journey } from '../models/journey.model';
@@ -18,7 +20,8 @@ export class FlightComponent implements OnInit {
   journey!: Journey;
   price!: number ;
 
-  dataForm!: FormGroup;
+  public dataForm!: FormGroup;
+
 
 
   constructor(private apiFlight: FlightService,
@@ -30,13 +33,21 @@ export class FlightComponent implements OnInit {
   }
 
   ngOnInit() {
-   this.dataForm = this.fb.group({
+    this.dataForm = this.fb.group({
       origin: ['', Validators.required],
       destination: ['', Validators.required]
+    },{
+      validators:[this.diferent]
     });
-
-
   }
+
+  diferent(form: FormGroup){
+    const origin = form.get('origin')?.value;
+    const destination= form.get('destination')?.value;
+
+    return origin != destination ? null: {notSame:true};
+  }
+
 
   getFlight(){
     this.requestFlight = this.dataForm.value;
