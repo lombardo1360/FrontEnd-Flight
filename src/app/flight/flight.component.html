@@ -5,11 +5,14 @@
   <div class="container" style="text-align: center;">
     <form (ngSubmit)="getFlight()" [formGroup]="dataForm" >
       <div class="input-group mb-3">
-        <input id="origin" maxlength="3" type="text" class="form-control" placeholder="Origen" formControlName="origin"  oninput="this.value = this.value.toUpperCase()">
-        
+        <input type="origin" maxlength="3" type="text" class="form-control" placeholder="Origen"
+                formControlName="origin" oninput="this.value = this.value.toUpperCase()" required>
         <span  class="input-group-text"><i class="bi bi-arrow-right"></i></span>
-        <input name="destination" maxlength="3" type="text" class="form-control" placeholder="Destino" formControlName="destination" oninput="this.value = this.value.toUpperCase()">
+        <input name="destination" maxlength="3" type="text" class="form-control" placeholder="Destino"
+              formControlName="destination" oninput="this.value = this.value.toUpperCase()" required>
       </div>
+    <br>
+    <br>
       <div >
         <button type="submit" [disabled]="!dataForm.valid" class="btn btn-primary" ><i class="bi bi-search"></i> Consultar</button>
       </div>

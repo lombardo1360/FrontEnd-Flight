@@ -22,14 +22,10 @@ export class FlightComponent implements OnInit {
 
   public dataForm!: FormGroup;
 
-
-
   constructor(private apiFlight: FlightService,
-              private fb: FormBuilder
-  )
+              private fb: FormBuilder)
   {
       this.requestFlight = {origin: '', destination: ''}
-
   }
 
   ngOnInit() {
@@ -40,6 +36,8 @@ export class FlightComponent implements OnInit {
       validators:[this.diferent]
     });
   }
+
+
 
   diferent(form: FormGroup){
     const origin = form.get('origin')?.value;
